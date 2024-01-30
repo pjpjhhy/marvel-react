@@ -71,7 +71,7 @@ const Card = ({logoImage, size,  image, title, link1, link2, sub, article, btn1,
                   )
                   }
                    <p 
-                   className={`w-full h-16 text-left text-sm font-semibold items-start pt-4 px-1 uppercase 
+                   className={`w-full h-16 text-left text-sm font-semibold items-start pt-4 px-1
                    ${selected === index && "text-red-600"}`}>
                     {item.title}
                   </p>    

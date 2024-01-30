@@ -10,10 +10,10 @@ export const testimonials = [
     {
       logoImage:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Marvel_Studios_2016_logo.svg/2560px-Marvel_Studios_2016_logo.svg.png",
       size:"w-[300px] h-[75px]",
-      image: "https://cdn.marvel.com/content/1x/stormmagneto_com_mas_dsk_01.jpg",
+      image: "https://cdn.marvel.com/content/1x/voices_0129_com_mas_dsk_01.jpg",
       sub:`this week's new comics`,
-      article:`Join Storm's search for Magneto, behold the battle for Beast's soul, see Spider-Woman strike back in 'Gang War', and more in this week's comics!`,
-      title: "The Weeks New Comics",
+      article:`Meet the Dead X-Men, behold Sabretooth's big plans for Wolverine, join Shang-Chi's fight for Chinatown, and more in this week's comics!`,
+      title: "The Week's New Comics",
       btn1:"Read More",
       link1: "https://www.daum.net"
     },
@@ -21,7 +21,7 @@ export const testimonials = [
       logoImage:"https://cdn.marvel.com/content/1x/whatifs2_log_eye_02.png",
       image: "https://cdn.marvel.com/content/1x/watchers9days_com_mas_dsk_01.jpg",
       article:`Check back each day at 9am PST for new reveals and exclusive gifts as we watch Season 2 of Marvel Studio's What If...? Now streaming on Disney+.`,
-      sub:`the wathcer's nine days of what if...?`,
+      sub:`the watcher's nine days of what if...?`,
       title: "What if.. Season..2",
       btn1:"Read More",
       link1: "https://www.daum.net",

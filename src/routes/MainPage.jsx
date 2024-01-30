@@ -4,19 +4,24 @@ import ListCarasel from "../components/ListCarasel";
 import MainSlide from "../components/MainSlide";
 import TitleImageBox from "../components/TitleImageBox";
 import TitleRotate from "../components/TitleRotate";
-import { apiGetComics, apiGetEvents, apiGetSeries } from "../Lib/api";
+import { apiGetCharacters, apiGetComics, apiGetEvents, apiGetSeries } from "../Lib/api";
+import PacmanLoader from "react-spinners/PacmanLoader";
+import Button from "../components/Button";
 
 export default function MainPage() {
   let lists; // fetch 요청한 배열을 받기 위한 변수
   let events; //events fetch 요청
   let series; //series fetch 요청
+  let characters; //caracters fetch 요청
 
+  // 코믹스 요청
   const { data, isLoading } = useQuery(["getComics"], apiGetComics);
   if (!isLoading) {
     lists = data?.data.results;
   }
   // console.log(isLoading, data);
 
+  // 이벤트요청
   const { data: dataEvents, isLoading: isLoadingEvents } = useQuery(
     ["getEvents"],
     apiGetEvents
@@ -26,29 +31,48 @@ if(!isLoadingEvents){
 }
   // console.log(events);
 
+  // 시리즈요청
   const { data: dataSeries, isLoading: isLoadingSeries } = useQuery(
     ["getSeries"],
     apiGetSeries
   );
-if(!isLoadingEvents){
+if(!isLoadingSeries){
   series = dataSeries?.data.results;
 }
-console.log(series);
+// console.log(series);
+
+// 캐릭터요청
+const {data: dataCharacters, isLoading:isLoadingCharacters} =  useQuery(
+  ["getCharacters", { limit : 30 }], 
+  apiGetCharacters
+  );
+  if(!isLoadingCharacters){
+    characters = dataCharacters?.data.results;
+    console.log( "나 캐릭터", characters)
+
+  }
   return (
     <Layout>
       {/* 메인 슬라이드 컴포넌트 */}
       <MainSlide />
+
       {/* 코믹스 섹션 */}
-      <TitleImageBox imgUrl="https://cdn.britannica.com/62/182362-050-BD31B42D/Scarlett-Johansson-Black-Widow-Chris-Hemsworth-Thor.jpg" />
+      <TitleImageBox imgUrl="https://cdn.marvel.com/content/1x/20240124-newtomu_base_set_dsk.jpg" 
+           mainTitle="AVAILABLE NOW"
+           subTitle="NEW ON MARVEL UNLIMITED"
+           description="Read these plus 30,000+ digital comics for $9.99 a month!"
+           btnTxt="GET MARVEL UNLIMITED"/>
+
       {/* 리시트 캐러셀 */}
       <ListCarasel lists={lists}/>
+
       {/* 이벤트들 */}
       <section className="w-full flex justify-center">
         <div className="max-w-7xl w-full  grid grid-cols-[7fr_3fr]">
           {/* 1 : left */}
           {/* 타이틀 */}
           <div className="w-full h-full ">
-            <TitleRotate text= "The Events" />
+            <TitleRotate text= "THE LATEST" />
             {/* 이벤트 api에서 불러오기 */}
             <div className="w-full">
               {events?.map((item, index)=>(
@@ -114,6 +138,44 @@ console.log(series);
           </div>
         </div>
       </section>
+
+      {/* 캐릭터들 */}
+      <TitleImageBox 
+      imgUrl="https://filmschoolrejects.com/wp-content/uploads/2018/04/the-avengers-comics.jpg"
+      mainTitle="On sale 1 / 31"
+      subTitle="NEW COMICS THIS WEEK"
+      description="AVENGERS : LEGACY
+      Celebrating the Legacy of Earth’s Mightiest Heroes!"
+      btnTxt="print subscription"/>
+
+        {/* characters 리시트 캐러셀 */}
+        { isLoadingCharacters ? (
+          <layOut7><div className="w-full flex justify-center py-16"><PacmanLoader color="#36d7b7"  size={37}/></div></layOut7>
+        )  : (<ListCarasel lists={characters}/>) }
+
+
+        {/* marverl insider */}
+        <section className="w-full flex justify-center bg-black">
+          <div className="max-w-7xl w-full grid grid-cols-[4fr_6fr]">
+            {/* 1.left */}
+            <div className="w-full h-full bg-blue-200">
+              <img 
+              className="f-full w-full"
+
+              src="https://cdn.marvel.com/content/1x/01-mi-promo-april2020-featured-half-dsk-1140x680_4.jpg" alt="marver_insider" />
+            </div>
+            {/* 2.left */}
+            <div className="w-full h-full flex flex-col justify-center text-center text-white space-y-3">
+                <h1 className="text-red-600 font-black text-xl pt-12">MARVEL INSIDER</h1>
+                <div className="space-y-2 pb-4">
+                <p className="text-3xl font-black">Watch, Earn, Redeem!</p>
+                <p>Get rewarded for doing what you already do as a fan.</p>
+                </div>
+                <Button text="join now"/>
+                <p className="text-xs pt-8">Terms and Conditions Apply</p>
+            </div>
+          </div>
+        </section>
     </Layout>
   );
 }
