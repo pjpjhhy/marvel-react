@@ -33,10 +33,6 @@ export default function TitleImageBox({imgUrl, mainTitle, subTitle, description,
                 </div>
               </div>
             </div>
-            {/* comics list */}
-            <div className=''>
-
-            </div>
           </section>
     </div>
   )

@@ -37,8 +37,8 @@ export default function Header(){
         </section>
         <section className="w-full border cursor-pointer hover:text-gray-500 font-bold border-gray-700 flex justify-center h-10 bg-[#202020] text-white uppercase space-x-8 text-sm items-center">
             <p className="hover:text-white hover:border-b-2 p-2 border-red-600">news</p>
-            <p className="hover:text-white hover:border-b-2 p-2 border-red-600">comics</p>
-            <p className="hover:text-white hover:border-b-2 p-2 border-red-600">characters</p> 
+            <Link to="/comics"><p className="hover:text-white hover:border-b-2 p-2 border-red-600">comics</p></Link>
+            <Link to="/characters"><p className="hover:text-white hover:border-b-2 p-2 border-red-600">characters</p></Link> 
             <p className="hover:text-white hover:border-b-2 p-2 border-red-600">movies</p>
             <p className="hover:text-white hover:border-b-2 p-2 border-red-600">tv shows</p>
             <p className="hover:text-white hover:border-b-2 p-2 border-red-600">games</p>

@@ -6,10 +6,7 @@ import Twitter from '../assets/Twitter'
 import Button from '../components/Button'
 import { motion } from "framer-motion"
 
-
-
-
-const Card = ({logoImage, size,  image, title, link1, link2, sub, article, btn1, btn2, selected, setSelected, position}) => {
+const Card = ({logoImage, size,  image2, title, link1, link2, sub2, btn3, selected, setSelected, position}) => {
     const offset = position <= selected ? 0 : 100
     return(
         // item 1 out of 5
@@ -24,19 +21,19 @@ const Card = ({logoImage, size,  image, title, link1, link2, sub, article, btn1,
             <div className='absolute top-0 left-0 w-full h-full flex justify-center'>
               {/* background image */}
               <img 
-              className='w-full h-full bg-cover' 
-              src={image} 
+              className='w-full h-full bg-cover brightness-50' 
+              src={image2} 
               alt={title}/>
               <div className=' text-white space-y-4 justify-center absolute max-w-7xl w-full h-full flex flex-col'>
                 {logoImage && 
                 <div className='h-[90px]'>
                 <img src={logoImage} alt="slide_logo" className={size} />
                 </div>}
-                <h1 className='text-3xl font-black uppercase'>{sub}</h1>
-                <p className='text-md w-[700px] font-medium'>{article}</p>
+                <div className='w-full'>
+                    <h1 className='text-3xl font-black w-[60%] uppercase'>{sub2}</h1>
+                </div>
                 <div className='flex space-x-4'>
-                  {link1 && <Button red="red" link={link1} text={btn1}/>}
-                  {link2 && <Button red="red" link={link2} text={btn2}/>}
+                  {link1 && <Button com="com" link={link1} text={btn3}/>}
                 </div>
               </div>
             </div>

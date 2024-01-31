@@ -90,7 +90,7 @@ const {data: dataCharacters, isLoading:isLoadingCharacters} =  useQuery(
                     {item.title}
                     </div>
                     <div className="ml-4 mb-3 flex font-semibold">
-                      {`${item.start || ''}  ${item.end || ''}`}
+                      {`${item?.start?.substr(0,10) || ''}  ${item?.end?.substr(0,10) || ''}`}
                     </div>
                     {/* description */}
                     <div className="ml-4">
