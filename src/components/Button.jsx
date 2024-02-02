@@ -7,6 +7,7 @@ export default function Button({link, text, outline ,com, red}) {
         <Link to={link}>
             <div>
                 <button 
+                    type='submit'
                     style={{clipPath: "polygon(10% 0, 100% 0, 100% 75%, 90% 100%, 0 100%, 0 29%)"}}
                     className={`uppercase px-10 py-4 font-bold duration-500
                     ${red === "red" ? "bg-red-600 hover:bg-red-700" : ""}

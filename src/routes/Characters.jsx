@@ -3,6 +3,7 @@ import Layout from '../components/Layout'
 import TitleRotate from '../components/TitleRotate'
 import { useQuery } from 'react-query'
 import { apiGetCharacters } from '../Lib/api'
+import { Link } from 'react-router-dom'
 
 export default function Characters() {
     let characters;
@@ -35,6 +36,7 @@ export default function Characters() {
                 <div className='grid grid-cols-6 gap-4 pt-2'>
                     {characters?.map((item, index)=> (
                         <div key={index} className='h-[340px] cursor-pointer group'>
+                          <Link to={`/characters/${item.id}`}>
                             <div 
                             style={{clipPath: "polygon(100% 0, 100% 92%, 82% 100%, 0 100%, 0 0)"}}
                             className='w-full h-full flex flex-col bg-red-600'>
@@ -56,6 +58,7 @@ export default function Characters() {
                                 </div>
                                 </div>
                             </div>
+                            </Link>
                         </div>
                     ))}
                 </div>

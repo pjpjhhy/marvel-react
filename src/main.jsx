@@ -7,6 +7,8 @@ import NotFound from './routes/Notfound.jsx'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import Characters from './routes/Characters.jsx'
 import Comics from './routes/Comics.jsx'
+import ComicDetail from './ComicDetail.jsx'
+import Email from './routes/Email.jsx'
 
 
 const router = createBrowserRouter([
@@ -27,6 +29,15 @@ const router = createBrowserRouter([
         path: "comics", 
         element: <Comics/>
       },
+      {
+        path: "comics/:id", 
+        element: <ComicDetail/>
+      },
+      {
+        path: "email", 
+        element: <Email/>
+      },
+
     ]
   }
 ])
